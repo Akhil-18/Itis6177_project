@@ -6,18 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="callApi()">Call api</button>
+    <label for="date">The time in ISO format is:</label>
+    <p id="date"></p>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js" 
  integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous">
 </script>
 <script>
+    window.setInterval(function ()
+   {
+    callApi();
+   }, 60000);
     function callApi()
     {
-        axios.get("http://159.89.179.136:3000")
- .then(resp=>{
-     console.log(resp)
+        axios.get("https://ekmbusljl2.execute-api.us-east-1.amazonaws.com/prod")
+        .then(resp=>{
+            result = resp;
+     console.log(result)
+     document.getElementById("date").innerHTML = result.data;
  });
     }
-</script>
+</script
 </body>
 </html>
