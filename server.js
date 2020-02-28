@@ -9,7 +9,7 @@ const port = 3000
 app.get('/', function(req, res){
     const data = axios.get('https://ekmbusljl2.execute-api.us-east-1.amazonaws.com/prod')
     .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         res.send(response.data);
     });
 })
